@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: #edeaff ;
+    }
+    
+    .stopwatch{
+        width: 50%;
+        height:200px;
+        border: 1px solid red;
+       margin: 200px 0px 0px 300px;
+       background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(./images/background.png);
+       
+        
+    }
+
+    h1{
+        color: red;
+        text-align: center;
+     
+    }
+
+    #display{
+        text-align: center;
+        color:white ;
+    }
+    
+    img{
+        height: 50px;
+        background: black;
+        
+    }
+
+    .stopwatch>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+</style>
+<body>
+    <h1>STOPWATCH</h1>
+    <div class="stopwatch">
+        
+        <h1 id="display"></h1>
+        <div>
+        <button id="pause"><img src="./images/stop.png" alt=""></button>
+       <button id="start"><img src="./images/start.png" alt=""></button>
+       <button id="reset"><img src="./images/reset.png" alt=""></button>
+        </div>
+        
+    </div>
+     
+</body>
+</html>
+<script>
+let count=0;
+document.getElementById("display").textContent = count + "s";
+let startBtn=document.querySelector("#start").addEventListener("click",function(){
+    let id=setInterval(start,1000);
+    let pauseBtn=document.querySelector("#pause").addEventListener("click",function(){
+        pause(id);
+    });
+
+    let resetBtn=document.querySelector("#reset").addEventListener("click",function(){
+        reset(id);
+    })
+})
+
+function start(){
+    count++;
+   
+    let display=document.getElementById("display").textContent=formatTime(count);
+}
+
+function pause(id){
+clearInterval(id);
+}
+
+function reset(id){
+    clearInterval(id);
+    count=0;
+    let display=document.getElementById("display").textContent=formatTime(count);
+}
+
+function formatTime(timeInSeconds) {
+    let hours = Math.floor(timeInSeconds / 3600);
+    let minutes = Math.floor((timeInSeconds % 3600) / 60);
+    let seconds = timeInSeconds % 60;
+    
+    
+    hours = hours.toString().padStart(2, '0');
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+    if (hours === '00' && minutes === '00' && seconds === '00') {
+        return 0 + "s";
+    } else  {
+        return hours + ":" + minutes + ":" + seconds;
+    }
+   
+    
+}
+
+</script>
+
+
+
