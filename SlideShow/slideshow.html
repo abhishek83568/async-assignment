@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+   body{
+    background-color: beige;
+   }
+
+    h1 {
+      text-align: center;
+      color: cadetblue;
+    }
+
+    #container {
+      width: 70%;
+      height: 500px;
+      margin: 190px;
+      
+      
+      margin-top: -0px;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    #container > img {
+      height: 500px;
+      width: 100%;
+    }
+
+    #startBtn {
+      width: 50%;
+      height: 70px;
+     
+      margin-left: 150px;
+      margin-bottom: 10px;
+
+    }
+
+    #startBtn > button {
+      margin-left: 400px;
+      margin-top: 10px;
+      padding: 20px;
+      color: chartreuse;
+      background-color: black;
+      cursor: pointer;
+    }
+
+    #prevNxtBtn {
+      width: 50%;
+      height: 50px;
+      
+      margin-left: 280px;
+      margin-right: 150px;
+      margin-top: -190px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #prevNxtBtn > button {
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+      color: rgb(31, 63, 63);
+      background-color: bisque;
+      cursor: pointer;
+    }
+  </style>
+
+  <body>
+    <h1>SLIDESHOW</h1>
+    <div id="startBtn">
+      <button id="start-stop">Start Slideshow</button>
+    </div>
+
+    <div id="container"></div>
+    <div id="prevNxtBtn">
+      <button id="previous">Previous</button>
+      <button id="next">Next</button>
+    </div>
+  </body>
+</html>
+<script src="slideshow.js"></script>
